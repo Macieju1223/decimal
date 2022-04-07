@@ -13,18 +13,18 @@ import re
 tekst = """Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
 when an unknown printer took a galley of type and scrambled it to make a type specimen book with number 16755456532. 
-It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+It has 123-321-123 survived not only five centuries 123 123 123, but also the leap into electronic typesetting, remaining essentially unchanged
 with mail student@pwsz.edu.pl. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum 
 passages with PL12344, and more recently with desktop publishing software like Aldus PageMaker including versions 
 of Lorem Ipsum on 64-100."""
 
 # numer telefonu:
-req = '[1-9]{9}'
+req = '[1-9]{9}|[1-9]{3}\s[0-9]{3}\s[0-9]{3}|[1-9]{3}-[0-9]{3}-[0-9]{3}'
 check = re.findall(req,tekst)
 print(check)
 
 # adresy email w tekscie:
-req = '\w+@\w+.\w+'
+req = '([\w\.-]+@[\w\.-]+)'
 check = re.findall(req,tekst)
 print(check)
 
@@ -35,6 +35,6 @@ print(check)
 
 # szukanie kodu tekstowego w kodzie:
 
-req = '\d+-\d+'
+req = '[0-9]{2,3}-[0-9]{3}\.'
 check = re.findall(req,tekst)
 print(check)
